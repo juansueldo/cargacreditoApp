@@ -186,4 +186,4 @@ export class AuthService {
         break;
     }
   }
-}npm install sweetalert2 @sweetalert2/ngx-sweetalert2
+}

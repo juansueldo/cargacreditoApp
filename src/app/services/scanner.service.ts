@@ -16,7 +16,7 @@ export class ScannerService {
     if(result.hasContent){
       return result.content
     }
-    return;
+    return '';
   }
 
   public stopScan = ()=>{
