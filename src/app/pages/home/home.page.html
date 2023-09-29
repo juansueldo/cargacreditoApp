@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark" class="ion-text-center">
+    <ion-title>
+      Carga de crédito
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="spinner" *ngIf="cargando">
+    <ion-spinner name="lines-sharp" color="dark" style="width: 65px;height: 65px;"></ion-spinner>
+  </div>
+
+  <div class="container" *ngIf="usuario">
+    
+    <ion-button class="titulo-principal" color="warning" shape="round" (click)="this.auth.logout()">
+      {{ usuario.correo }}
+      <ion-icon class="ion-margin-start" name="log-out-outline"></ion-icon>        
+    </ion-button>
+
+    <div class="contenedor-botones">      
+      <ion-title class="title-secondary">Total de créditos</ion-title>
+      <div class="boton-numero">
+          <ion-title class="numeros-creditos">{{usuario.credito}}</ion-title>
+      </div>
+      
+    </div>
+    <ion-button [disabled]="usuario.credito == 0" style="height: 50px;" class="ion-margin-top" color="danger" shape="round" (click)="vaciarCredito()">
+      Borrar créditos
+      <ion-icon class="ion-margin-start" name="trash"></ion-icon>        
+    </ion-button>
+    <!-- <ion-button (click)="cargarCredito('8c95def646b6127282ed50454b73240300dccabc')">CARGAR 10</ion-button>
+    <ion-button (click)="cargarCredito('ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 ')">CARGAR 50</ion-button>
+    <ion-button (click)="cargarCredito('2786f4877b9091dcad7f35751bfcf5d5ea712b2f')">CARGAR 100</ion-button> -->
+  </div>
+  
+  <ion-fab horizontal="center" vertical="bottom" class="boton-logout">
+    <ion-fab-button [disabled]="noCarga" color="warning" title="Cerrar sesión" (click)="cargarCredito()">      
+      <ion-icon name="qr-code-outline" color="dark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>
