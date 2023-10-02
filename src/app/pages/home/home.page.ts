@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/services/auth.service';
 import { DbService } from 'src/app/services/db.service';
 import { ScannerService } from 'src/app/services/scanner.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomePage {
   noCarga : boolean = true;
   tope : number = 0;
 
-  constructor(public auth : AuthService,private usuarios : DbService,private scanner : ScannerService) {
+  constructor(public auth : AuthService,private usuarios : DbService,private scanner : ScannerService, private router: Router) {
     this.usuarios.traerUsuarios().subscribe(users => {
       //console.log(users);
       users.forEach(user => {
@@ -121,5 +122,9 @@ export class HomePage {
       heightAuto: false
     });
     return
+  }
+  logout(){
+    this.auth.logout();
+    this.router.navigateByUrl('/login');
   }
 }

@@ -36,19 +36,13 @@ export class LoginPage implements OnInit {
     const rol = event.target.value;
     switch (rol) {
       case 'admin':
-        this.logueoRapido('admin@admin.com','111111');        
+        this.logueoRapido('admin@admin.com.ar','123456');        
         break;
-      case 'usuario':
-        this.logueoRapido('usuario@usuario.com','333333');
-        break;
-      case 'anonimo':
-        this.logueoRapido('anonimo@anonimo.com','444444');
-        break;
-      case 'tester':
-        this.logueoRapido('tester@tester.com','555555');
+      case 'alumno':
+        this.logueoRapido('juan@gmail.com','123456');
         break;
       case 'invitado':
-        this.logueoRapido('invitado@invitado.com','222222');
+        this.logueoRapido('invitado@invitado.com.ar','123456');
         break;      
     }
     

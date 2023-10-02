@@ -1,20 +1,18 @@
 <ion-header>
   <ion-toolbar class="ion-text-center">
-    <ion-title>Ingreso</ion-title>
+    <ion-title>Carga de Crédito App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
  
   <ion-row class="ion-justify-content-center ion-padding">
-    <ion-title class="ion-margin-bottom" color="warning">Por favor seleccione su cuenta</ion-title>
+    <ion-title class="ion-margin-bottom" color="warning">Seleccionar cuenta</ion-title>
 
     <ion-select okText="Aceptar" cancelText="Cancelar" fill="solid" label="Cuenta" label-placement="fixed"  placeholder="Elija su cuenta" (ionChange)="cargarUsuario($event)">
       <ion-select-option color="danger" value="admin">Admin</ion-select-option>
       <ion-select-option value="invitado">Invitado</ion-select-option>
-      <ion-select-option value="anonimo">Anónimo</ion-select-option>
-      <ion-select-option value="usuario">Usuario</ion-select-option>
-      <ion-select-option value="tester">Tester</ion-select-option>
+      <ion-select-option value="alumno">Alumno</ion-select-option>
     </ion-select>
 
   </ion-row>

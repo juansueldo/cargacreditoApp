@@ -13,12 +13,12 @@ export class AuthService {
   constructor(private auth:AngularFireAuth,private router: Router) {
     this.toast= Swal.mixin({
       toast: true,
-      position: 'center-start',
+      position: 'center',
       showConfirmButton: false,
       timer: 2000,
       timerProgressBar: true,
-      background: '#000000',
-      color: '#ffffff'
+      background: '#f7d26e',
+      color: '#5ab8a2'
     })
   }
 
@@ -36,7 +36,7 @@ export class AuthService {
     return this.auth.signInWithEmailAndPassword(email,password)
       .then(
         e=>{
-          this.loginExitoso('Bienvenido nuevamente!');
+          this.loginExitoso(`Bienvenido ${e.user?.email}`);
           this.mailLogueado = e.user?.email;
           this.router.navigate(['/home']);
         }

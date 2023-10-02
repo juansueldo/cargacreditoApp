@@ -1,3 +1,7 @@
-ion-input{
-    color: #f7d26e;
+ion-input, ion-row{
+    --color: #f7d26e;
+    --background: #f7d26e;
+}
+.input-fill-solid.sc-ion-input-md-h .input-wrapper.sc-ion-input-md{
+    --background: #f7d26e !important;
 }

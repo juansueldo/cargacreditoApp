@@ -1,8 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar  class="ion-text-center">
-    <ion-title>
-      Carga de crédito
+    <ion-title slot="start">
+      Carga de Crédito App
     </ion-title>
+    <ion-tab-button slot="end" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <ion-label>Salir</ion-label>
+    </ion-tab-button>
   </ion-toolbar>
 </ion-header>
 
@@ -26,7 +30,7 @@
       </div>
       
     </div>
-    <ion-button [disabled]="usuario.credito == 0" style="height: 50px;" class="ion-margin-top" color="danger" shape="round" (click)="vaciarCredito()">
+    <ion-button [disabled]="usuario.credito === 0" style="height: 50px;" class="ion-margin-top" color="danger" shape="round" (click)="vaciarCredito()">
       Borrar créditos
       <ion-icon class="ion-margin-start" name="trash"></ion-icon>        
     </ion-button>
