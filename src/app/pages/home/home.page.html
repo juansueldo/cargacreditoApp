@@ -18,10 +18,9 @@
 
   <div class="container" *ngIf="usuario">
     
-    <ion-button class="titulo-principal" color="warning" shape="round" (click)="this.auth.logout()">
-      {{ usuario.correo }}
-      <ion-icon class="ion-margin-start" name="log-out-outline"></ion-icon>        
-    </ion-button>
+    <div class="titulo-principal" color="warning" shape="round">
+      <h2 class="perfil">Bienvenido  {{ usuario.perfil }}</h2>    
+    </div>
 
     <div class="contenedor-botones">      
       <ion-title class="title-secondary">Total de créditos</ion-title>
@@ -34,9 +33,6 @@
       Borrar créditos
       <ion-icon class="ion-margin-start" name="trash"></ion-icon>        
     </ion-button>
-    <!-- <ion-button (click)="cargarCredito('8c95def646b6127282ed50454b73240300dccabc')">CARGAR 10</ion-button>
-    <ion-button (click)="cargarCredito('ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 ')">CARGAR 50</ion-button>
-    <ion-button (click)="cargarCredito('2786f4877b9091dcad7f35751bfcf5d5ea712b2f')">CARGAR 100</ion-button> -->
   </div>
   
   <ion-fab horizontal="center" vertical="bottom" class="boton-logout">

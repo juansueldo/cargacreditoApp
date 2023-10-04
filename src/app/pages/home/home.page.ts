@@ -18,11 +18,11 @@ export class HomePage {
 
   constructor(public auth : AuthService,private usuarios : DbService,private scanner : ScannerService, private router: Router) {
     this.usuarios.traerUsuarios().subscribe(users => {
-      //console.log(users);
+      console.log(users);
       users.forEach(user => {
         if(this.auth.mailLogueado == user.correo){
           this.usuario = user;
-          this.tope = this.usuario.perfil == 'admin' ? 320 : 160;
+          this.tope = this.usuario.perfil == 'Admin' ? 320 : 160;
           this.noCarga = this.usuario.credito == this.tope;
         }
       });
@@ -39,7 +39,7 @@ export class HomePage {
       this.scanner.stopScan();
       switch (codigo) {      
         case '8c95def646b6127282ed50454b73240300dccabc':
-          if(this.usuario.perfil == 'admin'){
+          if(this.usuario.perfil == 'Admin'){
             if(this.usuario.credito10 == 2){
               this.cargaMaxima(true);
               return
@@ -59,7 +59,7 @@ export class HomePage {
           break;
   
         case 'ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 ':
-          if(this.usuario.perfil == 'admin'){
+          if(this.usuario.perfil == 'Admin'){
             if(this.usuario.credito50 == 2){
               this.cargaMaxima(true);
               return
@@ -79,7 +79,7 @@ export class HomePage {
           break;
   
         case '2786f4877b9091dcad7f35751bfcf5d5ea712b2f':
-          if(this.usuario.perfil == 'admin'){
+          if(this.usuario.perfil == 'Admin'){
             if(this.usuario.credito100 == 2){
               this.cargaMaxima(true);
               return;

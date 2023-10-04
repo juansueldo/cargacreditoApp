@@ -25,3 +25,32 @@
 #container a {
   text-decoration: none;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.titulo-principal{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #ffc409;
+  height: 95px;
+}
+.perfil{
+  font-size: 35px;
+}
+.contenedor-botones{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 35px;
+}
+.title-secondary{
+  font-size: 55px;
+}
+.numeros-creditos{
+  font-size: 40px;
+  font-weight: 600;
+}
