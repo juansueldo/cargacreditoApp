@@ -98,7 +98,7 @@ export class HomePage {
           }        
           break;
       }    
-      this.usuarios.actualizarUsuario(this.usuario,this.usuario.uId)
+      this.usuarios.actualizarUsuario(this.usuario,this.usuario.uid)
     })
   }
 
@@ -107,7 +107,7 @@ export class HomePage {
     this.usuario.credito50 = 0
     this.usuario.credito100 = 0
     this.usuario.credito = 0
-    this.usuarios.actualizarUsuario(this.usuario,this.usuario.uId)
+    this.usuarios.actualizarUsuario(this.usuario,this.usuario.uid)
   }
 
   cargaMaxima(isAdmin : boolean){    
@@ -117,7 +117,7 @@ export class HomePage {
       text: `Solo puedes cargar ${isAdmin ? 2+' veces' : 1+' vez'} este valor.`,
       confirmButtonText: "Aceptar",
       confirmButtonColor: '#7e34bc',
-      background: '#000000',
+      background: '#5ab8a2',
       color: '#FFFFFF',
       heightAuto: false
     });

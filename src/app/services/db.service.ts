@@ -16,7 +16,7 @@ export class DbService {
     this.itemsCollection = this.firestore.collection<any>('usuarios');
     return this.todosLosUsuarios = this.itemsCollection.valueChanges();
   }
-  actualizarUsuario(atributo: any, id: any){
-    this.firestore.collection('usuarios').doc(id).set(atributo,{merge:true});
+  actualizarUsuario(atributo: any, uid: any){
+    this.firestore.collection('usuarios').doc(uid).set(atributo,{merge:true});
   }
 }
