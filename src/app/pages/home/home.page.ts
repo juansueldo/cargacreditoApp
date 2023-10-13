@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/services/auth.service';
 import { DbService } from 'src/app/services/db.service';
 import { ScannerService } from 'src/app/services/scanner.service';
 import { Router } from '@angular/router';
-
+import { ChangeDetectorRef, Component, VERSION } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -15,6 +15,8 @@ export class HomePage {
   usuario : any;
   noCarga : boolean = true;
   tope : number = 0;
+  public scannerEnabled: boolean = false;
+  public information: string = "No se  detectado información de ningún código. Acerque un código QR para escanear.";
 
   constructor(public auth : AuthService,private usuarios : DbService,private scanner : ScannerService, private router: Router) {
     this.usuarios.traerUsuarios().subscribe(users => {
@@ -22,24 +24,20 @@ export class HomePage {
       users.forEach(user => {
         if(this.auth.mailLogueado == user.correo){
           this.usuario = user;
-          this.tope = this.usuario.perfil == 'Admin' ? 320 : 160;
+          this.tope = this.usuario.perfil == 'admin' ? 320 : 160;
           this.noCarga = this.usuario.credito == this.tope;
         }
       });
     })
     setTimeout(() => {
       this.cargando = false;
-    }, 2000);
+    }, 500);
   }
 
-  cargarCredito(){
-    let codigo : any;
-    this.scanner.scan().then((a)=>{
-      codigo = a
-      this.scanner.stopScan();
+  cargarCredito(codigo : any){
       switch (codigo) {      
         case '8c95def646b6127282ed50454b73240300dccabc':
-          if(this.usuario.perfil == 'Admin'){
+          if(this.usuario.perfil === 'admin'){
             if(this.usuario.credito10 == 2){
               this.cargaMaxima(true);
               return
@@ -59,7 +57,7 @@ export class HomePage {
           break;
   
         case 'ae338e4e0cbb4e4bcffaf9ce5b409feb8edd5172 ':
-          if(this.usuario.perfil == 'Admin'){
+          if(this.usuario.perfil === 'admin'){
             if(this.usuario.credito50 == 2){
               this.cargaMaxima(true);
               return
@@ -79,7 +77,7 @@ export class HomePage {
           break;
   
         case '2786f4877b9091dcad7f35751bfcf5d5ea712b2f':
-          if(this.usuario.perfil == 'Admin'){
+          if(this.usuario.perfil === 'admin'){
             if(this.usuario.credito100 == 2){
               this.cargaMaxima(true);
               return;
@@ -99,7 +97,6 @@ export class HomePage {
           break;
       }    
       this.usuarios.actualizarUsuario(this.usuario,this.usuario.uid)
-    })
   }
 
   vaciarCredito(){
@@ -126,5 +123,18 @@ export class HomePage {
   logout(){
     this.auth.logout();
     this.router.navigateByUrl('/login');
+  }
+  public scanSuccessHandler($event: any) {
+    this.scannerEnabled = false;
+    this.information = "Espera recuperando información... ";
+
+    this.information = $event;
+    console.log(this.information);
+    this.cargarCredito(this.information);
+  }
+
+  public enableScanner() {
+    this.scannerEnabled = !this.scannerEnabled;
+    this.information = "No se  detectado información de ningún código. Acerque un código QR para escanear.";
   }
 }

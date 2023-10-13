@@ -21,13 +21,13 @@
     <ion-grid>
       <ion-row class="ion-justify-content-center">
 
-        <ion-input class="ion-margin-bottom ion-margin-top" fill="solid" label="Correo" label-placement="floating" placeholder="Correo electrónico" type="email" formControlName="email"></ion-input>
+        <ion-input class="ion-margin-bottom ion-margin-top" expand="block" fill="solid" label="Correo" label-placement="floating" placeholder="Correo electrónico" type="email" formControlName="email"></ion-input>
         
 
         <ion-text *ngIf="formRegistro.controls['email'].errors?.['required'] && formRegistro.controls['email'].touched" color="danger">Debe ingresar un email</ion-text>
 
         
-        <ion-input class="ion-margin-bottom ion-margin-top" fill="solid" label="Contraseña" label-placement="floating" placeholder="Contraseña" type="password" formControlName="pass"></ion-input>
+        <ion-input class="ion-margin-bottom ion-margin-top" fill="solid" expand="block" label="Contraseña" label-placement="floating" placeholder="Contraseña" type="password" formControlName="pass"></ion-input>
         
 
         <ion-text *ngIf="formRegistro.controls['pass'].errors?.['required'] && formRegistro.controls['pass'].touched" color="danger">Debe ingresar una contraseña</ion-text>
@@ -38,7 +38,7 @@
       
       <ion-row>
         <ion-col class="ion-text-center">
-          <ion-button shape="round" color="dark" [disabled]="formRegistro.invalid" expand="block" (click)="login()">Ingresar</ion-button>
+          <ion-button size="large" shape="round" color="dark" [disabled]="formRegistro.invalid" expand="block" (click)="login()">Ingresar</ion-button>
         </ion-col>
       </ion-row>
 
@@ -46,7 +46,7 @@
   </form>
 
   <ion-row class="ion-justify-content-center ion-margin-top">
-    <img src="../../../assets/icon/cargacreditoApp.png" class="ion-margin" width="50%" height="50%"/>
+    <img src="../../../assets/icon/cargacreditoApp.png" class="ion-margin" width="70%" height="70%"/>
   </ion-row>
   
 </ion-content>

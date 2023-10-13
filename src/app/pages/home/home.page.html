@@ -27,6 +27,11 @@
       <div class="boton-numero">
           <ion-title class="numeros-creditos">{{usuario.credito}}</ion-title>
       </div>
+      <div class="creditos-container">
+        <p>Creditos de 10: {{usuario.credito10}}</p>
+        <p>Creditos de 50: {{usuario.credito50}}</p>
+        <p>Creditos de 100: {{usuario.credito100}}</p>
+      </div>
       
     </div>
     <ion-button [disabled]="usuario.credito === 0" style="height: 50px;" class="ion-margin-top" color="danger" shape="round" (click)="vaciarCredito()">
@@ -34,10 +39,12 @@
       <ion-icon class="ion-margin-start" name="trash"></ion-icon>        
     </ion-button>
   </div>
-  
+  <zxing-scanner *ngIf="scannerEnabled" #scanner (scanSuccess)="scanSuccessHandler($event)">
+  </zxing-scanner>
+      
   <ion-fab horizontal="center" vertical="bottom" class="boton-logout">
-    <ion-fab-button [disabled]="noCarga" color="warning" title="Cerrar sesión" (click)="cargarCredito()">      
-      <ion-icon name="qr-code-outline" color="dark"></ion-icon>
+    <ion-fab-button [disabled]="noCarga" color="warning" title="Cerrar sesión" >      
+      <ion-icon name="qr-code-outline" color="dark"(click)="enableScanner()" *ngIf="!scannerEnabled"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   

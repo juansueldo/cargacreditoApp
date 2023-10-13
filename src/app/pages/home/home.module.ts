@@ -6,13 +6,19 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
+
+LOAD_WASM().subscribe((res: any) => console.log('LOAD_WASM', res));
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ZXingScannerModule,
+    NgxScannerQrcodeModule
   ],
   declarations: [HomePage]
 })

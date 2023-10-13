@@ -54,3 +54,17 @@
   font-size: 40px;
   font-weight: 600;
 }
+:host zxing-scanner::ng-deep video {
+  height: 60vh;    
+  width: 100vw;
+  object-fit: contain;
+   border-style: solid;
+  border-color: #5d78ff;
+}
+.creditos-container{
+  display: flex;
+  justify-content: center;
+  p{
+    padding: 10px;
+  }
+}

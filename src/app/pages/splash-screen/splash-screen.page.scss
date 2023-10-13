@@ -7,12 +7,17 @@
 }
 ion-title{
     color: #f7d26e;
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: 600;
 }
 .icono{
-    height: 220px;
+    height: 420px;
 }
+h1{
+  font-size: 3.5rem;
+  color: #db4f41;
+}
+
 .rotate-center {
 	-webkit-animation: rotate-center 0.6s ease-in-out both;
 	        animation: rotate-center 0.6s ease-in-out both;
